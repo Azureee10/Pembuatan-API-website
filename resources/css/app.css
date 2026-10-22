@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        font-family: 'DM Sans', sans-serif;
+        color: #17221c;
+        background: #f7f5ef;
+    }
+
+    body {
+        min-width: 320px;
+        background: #f7f5ef;
+    }
+}
+
+@layer components {
+    .font-display {
+        font-family: 'Playfair Display', serif;
+    }
+
+    .auth-choice-overlay {
+        align-items: center;
+        background: rgba(23, 34, 28, 0.5);
+        display: none;
+        inset: 0;
+        justify-content: center;
+        padding: 1.25rem;
+        position: fixed;
+        z-index: 30;
+    }
+
+    .auth-choice-overlay.is-open {
+        display: flex;
+    }
+
+    .auth-choice-panel {
+        background: #f8f3e7;
+        border: 1px solid rgba(23, 34, 28, 0.12);
+        border-radius: 1.5rem;
+        box-shadow: 0 24px 60px rgba(23, 34, 28, 0.22);
+        max-width: 28rem;
+        padding: 1.75rem;
+        width: 100%;
+    }
+
+    .app-settings-backdrop {
+        background: rgba(23, 34, 28, 0.35);
+        inset: 0;
+        opacity: 0;
+        pointer-events: none;
+        position: fixed;
+        transition: opacity 220ms ease;
+        z-index: 40;
+    }
+
+    .app-settings-backdrop.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .app-settings-drawer {
+        background: #fff;
+        bottom: 0;
+        box-shadow: -12px 0 35px rgba(23, 34, 28, 0.16);
+        max-width: 21rem;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transform: translateX(100%);
+        transition: transform 220ms ease;
+        width: min(82vw, 21rem);
+        z-index: 41;
+    }
+
+    .app-settings-drawer.is-open {
+        transform: translateX(0);
+    }
+
+    .product-card {
+        transition: transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 35px rgba(23, 34, 28, 0.1);
+    }
+
+    .product-card img {
+        transition: transform 400ms ease;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.05);
+    }
+
+    .marketplace-banner {
+        height: 160px;
+        min-height: 0;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .marketplace-banner img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .marketplace-product-image {
+        height: 190px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .marketplace-product-image img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 640px) {
+        .marketplace-banner {
+            height: 130px;
+        }
+
+        .marketplace-product-image {
+            height: 150px;
+        }
+    }
+}
